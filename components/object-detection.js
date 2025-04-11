@@ -1,10 +1,10 @@
 "use client";
 
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
-import {load as cocoSSDLoad} from "@tensorflow-models/coco-ssd";
+import { load as cocoSSDLoad } from "@tensorflow-models/coco-ssd";
 import * as tf from "@tensorflow/tfjs";
-import {renderPredictions} from "@/utils/render-predictions";
+import { renderPredictions } from "@/utils/render-predictions";
 
 let detectInterval;
 
@@ -77,6 +77,17 @@ const ObjectDetection = () => {
             className="rounded-md w-full lg:h-[720px]"
             muted
           />
+
+          <Webcam
+            ref={webcamRef}
+            className="rounded-md w-full lg:h-[720px]"
+            muted
+            // Ask for the environment (back) camera on mobile
+            videoConstraints={{
+              facingMode: { exact: "environment" },
+            }}
+          />
+
           {/* canvas */}
           <canvas
             ref={canvasRef}
