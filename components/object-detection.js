@@ -78,16 +78,6 @@ const ObjectDetection = () => {
             muted
           />
 
-          <Webcam
-            ref={webcamRef}
-            className="rounded-md w-full lg:h-[720px]"
-            muted
-            // Ask for the environment (back) camera on mobile
-            videoConstraints={{
-              facingMode: { exact: "environment" },
-            }}
-          />
-
           {/* canvas */}
           <canvas
             ref={canvasRef}
